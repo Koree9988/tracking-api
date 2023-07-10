@@ -1,0 +1,25 @@
+{
+  "name": "tracking-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "config.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon server.js"
+  },
+  "keywords": [],
+  "author": "AIiLAB",
+  "license": "ISC",
+  "dependencies": {
+    "@fastify/swagger": "^7.6.1",
+    "@prisma/client": "^4.16.2",
+    "axios": "^1.4.0",
+    "dotenv": "^16.3.1",
+    "fastify": "^4.19.2",
+    "moment": "^2.29.4",
+    "node-cron": "^3.0.2",
+    "pino-pretty": "^10.0.1",
+    "prisma": "^4.16.2",
+    "sqlite3": "^5.1.6"
+  }
+}

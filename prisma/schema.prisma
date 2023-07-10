@@ -1,0 +1,40 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model dailyData {
+  id             Int       @id @default(autoincrement())
+  createdAt      DateTime  @default(now()) @map("created_at")
+  updatedAt      DateTime  @updatedAt() @map("updated_at")
+  deletedAt      DateTime? @map("deleted_at")
+  timestamp      DateTime  @default(now())
+  numberOfUser   Int       @default(0) @map("number_of_user")
+  numberOfPeople Int       @default(0) @map("number_of_people")
+  machineId      String    @map("machine_id")
+  storeStatus    Boolean   @default(false) @map("store_status")
+
+  @@map("daily_data")
+}
+
+model rawData {
+  id           Int       @id @default(autoincrement())
+  createdAt    DateTime  @default(now()) @map("created_at")
+  updatedAt    DateTime  @updatedAt() @map("updated_at")
+  deletedAt    DateTime? @map("deleted_at")
+  inTimestamp  DateTime  @default(now()) @map("in_timestamp")
+  outTimestamp DateTime? @map("out_timestamp")
+  userId       String    @map("user_id")
+  zone         String?
+  machineId    String    @map("machine_id")
+  storeStatus  Boolean   @default(false) @map("store_status")
+
+  @@map("raw_data")
+}
